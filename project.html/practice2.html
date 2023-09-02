@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Background Color and Value</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="color-box" style="width: 100px; height: 100px; text-align: center; padding-top: 40px;"></div>
+    <input type="text" id="color-input" placeholder="Enter a color">
+    
+    <script>
+        $(document).ready(function () {
+            // Function to update the background color and text of the div
+            function updateColorBox() {
+                const color = $('#color-input').val();
+                $('#color-box').css('background-color', color);
+                $('#color-box').text(color);
+            }
+
+            // Attach an event listener to the input field
+            $('#color-input').on('input', function () {
+                updateColorBox();
+            });
+
+            // Initial update
+            updateColorBox();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .login-container {
+            margin-top: 50px;
+        }
+
+        #login-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #home-link img {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login Page</h1>
+        <form id="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <br><br>
+            <button type="submit" id="login-button">Login</button>
+        </form>
+    </div>
+    <div id="home-link">
+        <!-- Image as a link to another page -->
+        <a href="home.html">
+            <img src="home_icon.png" alt="Home" width="50" height="50">
+        </a>
+    </div>
+
+    <script>
+        // JavaScript code can be added here for form submission and validation.
+        document.getElementById('login-form').addEventListener('submit', function (e) {
+            // Prevent the form from submitting (for demonstration purposes)
+            e.preventDefault();
+
+            // You can add your login validation logic here.
+
+            // Redirect to another page after successful login (for demonstration purposes)
+            window.location.href = 'welcome.html';
+        });
+    </script>
+</body>
+</html>

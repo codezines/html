@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Toggle Content</title>
+    <style>
+        /* Style for the button */
+        #toggleButton {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Style for the content initially hidden */
+        #content {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button id="toggleButton">Toggle Content</button>
+    <div id="content">
+        <p>This is the content you want to toggle.</p>
+    </div>
+
+    <script>
+        // JavaScript to handle the toggle functionality
+        const toggleButton = document.getElementById('toggleButton');
+        const content = document.getElementById('content');
+
+        toggleButton.addEventListener('click', () => {
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+            } else {
+                content.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

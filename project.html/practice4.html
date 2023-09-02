@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Paragraph Visibility</title>
+    <style>
+        #hidden-paragraph {
+            display: none; /* Initially hidden */
+        }
+    </style>
+</head>
+<body>
+    <button id="toggle-button">Toggle Paragraph</button>
+    <p id="hidden-paragraph">This paragraph was initially hidden due to some reasons our question was to ide the paragraph and show the message when we tggle the butten this is how its work.</p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleButton = document.getElementById('toggle-button');
+            const hiddenParagraph = document.getElementById('hidden-paragraph');
+
+            toggleButton.addEventListener('click', function () {
+                // Toggle the visibility of the paragraph
+                if (hiddenParagraph.style.display === 'none') {
+                    hiddenParagraph.style.display = 'block';
+                } else {
+                    hiddenParagraph.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

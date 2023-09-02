@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .timer-container {
+            margin-top: 50px;
+        }
+
+        .timer-display {
+            font-size: 36px;
+        }
+
+        #start-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #message {
+            font-size: 24px;
+            color: red;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="timer-container">
+        <div class="timer-display">
+            <span id="timer">0:00</span>
+        </div>
+        <button id="start-button">Start Countdown</button>
+    </div>
+    <div id="message" class="hidden">Time's Up!</div>
+    <script>
+        // Function to format time in minutes and seconds
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = seconds % 60;
+            return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+        }
+
+        // Function to start the countdown
+        function startCountdown() {
+            const timerDisplay = document.getElementById('timer');
+            const startButton = document.getElementById('start-button');
+            const message = document.getElementById('message');
+
+            let seconds = 60; // Set the initial countdown time (e.g., 60 seconds)
+            timerDisplay.textContent = formatTime(seconds);
+
+            const countdownInterval = setInterval(function () {
+                seconds--;
+                timerDisplay.textContent = formatTime(seconds);
+
+                if (seconds <= 0) {
+                    clearInterval(countdownInterval);
+                    message.style.display = 'block';
+                }
+            }, 1000);
+
+            startButton.disabled = true;
+        }
+
+        // Event listener for the start button
+        document.getElementById('start-button').addEventListener('click', startCountdown);
+    </script>
+</body>
+</html>
