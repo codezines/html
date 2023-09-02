@@ -1,79 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown Timer</title>
+    <title>Toggle Content</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        .timer-container {
-            margin-top: 50px;
-        }
-
-        .timer-display {
-            font-size: 36px;
-        }
-
-        #start-button {
+        /* Style for the button */
+        #toggleButton {
             padding: 10px 20px;
-            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
             cursor: pointer;
         }
 
-        #message {
-            font-size: 24px;
-            color: red;
-            margin-top: 20px;
+        /* Style for the content initially hidden */
+        #content {
             display: none;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="timer-container">
-        <div class="timer-display">
-            <span id="timer">0:00</span>
-        </div>
-        <button id="start-button">Start Countdown</button>
+    <button id="toggleButton">Toggle Content</button>
+    <div id="content">
+        <p>This is the content you want to toggle.</p>
     </div>
-    <div id="message" class="hidden">Time's Up!</div>
+
     <script>
-        // Function to format time in minutes and seconds
-        function formatTime(seconds) {
-            const minutes = Math.floor(seconds / 60);
-            const remainingSeconds = seconds % 60;
-            return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
-        }
+        // JavaScript to handle the toggle functionality
+        const toggleButton = document.getElementById('toggleButton');
+        const content = document.getElementById('content');
 
-        // Function to start the countdown
-        function startCountdown() {
-            const timerDisplay = document.getElementById('timer');
-            const startButton = document.getElementById('start-button');
-            const message = document.getElementById('message');
-
-            let seconds = 60; // Set the initial countdown time (e.g., 60 seconds)
-            timerDisplay.textContent = formatTime(seconds);
-
-            const countdownInterval = setInterval(function () {
-                seconds--;
-                timerDisplay.textContent = formatTime(seconds);
-
-                if (seconds <= 0) {
-                    clearInterval(countdownInterval);
-                    message.style.display = 'block';
-                }
-            }, 1000);
-
-            startButton.disabled = true;
-        }
-
-        // Event listener for the start button
-        document.getElementById('start-button').addEventListener('click', startCountdown);
+        toggleButton.addEventListener('click', () => {
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+            } else {
+                content.style.display = 'none';
+            }
+        });
     </script>
 </body>
 </html>
